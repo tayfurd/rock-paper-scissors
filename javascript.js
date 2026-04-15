@@ -63,9 +63,9 @@ function playRound(humanChoice, computerChoice) {
     }
     else console.log('Try Again');
 
-    if (result == "win") {humanScore++;} 
-        else if (result == "lose") {computerScore++;}
-        else if (result == "draw"){humanScore++; computerScore++;}
+    if (result == "win") {humanScore++; alert('You win the round!')} 
+        else if (result == "lose") {computerScore++;alert('You lose the round!')}
+        else if (result == "draw"){humanScore++; computerScore++; alert('Draw round!')}
     return (result);
 }
 
@@ -95,13 +95,12 @@ function playGame() {
     console.log("You: " + humanScore + " Opponent: " + computerScore);
     if (humanScore > computerScore) {
         alert("You win!");
-        console.log("You win!")}
+        console.log("You win the game!")}
         else if (humanScore < computerScore) {
             alert("You lose!")
-            console.log("You lose!")}
+            console.log("You lose the game!")}
         else if (humanScore == computerScore){
             alert("Draw!")
-            console.log("Draw!")}
+            console.log("Draw game!")}
 }
 playGame();
-
