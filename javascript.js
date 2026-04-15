@@ -15,7 +15,7 @@ function getHumanChoice(){
     else if (getAnswer == "scissors") {return 'scissors'}
     else alert('Please write rock, paper, or scissors.')
     }
-
+    
 let computerScore = 0;
 let humanScore = 0;
 
@@ -25,38 +25,53 @@ let humanScore = 0;
 // logs a winner announcement
 // humanChoice input case-insensitive
 function playRound(humanChoice, computerChoice) {
+    computerScore;
+    humanScore;
     if (humanChoice == 'rock' && computerChoice == 'rock') {
         console.log('Draw! You both chose rock.');
+        result = "draw";
     }
     else if (humanChoice == 'rock' && computerChoice == 'paper') {
         console.log('You lose! Paper beats rock.');
+        result = "lose";
     }
     else if (humanChoice == 'rock' && computerChoice == 'scissors') {
         console.log('You win! Rock beats scissors.')
+        result = "win";
     }
     else if (humanChoice =='paper' && computerChoice =='rock') {
         console.log('You win! Paper beats rock.')
+        result = "win";
     }
     else if (humanChoice =='paper' && computerChoice =='paper') {
         console.log('Draw! You both chose paper.')
+        result = "draw";
     }
     else if (humanChoice =='paper' && computerChoice =='scissors') {
         console.log('You lose! Scissors beats paper.')
+        result = "lose";
     }
     else if (humanChoice =='scissors' && computerChoice =='rock') {
         console.log('You lose! Rock beats scissors.')
+        result = "lose";
     }
     else if (humanChoice =='scissors' && computerChoice =='paper') {
         console.log('You win! Scissors beats paper.')
+        result = "win";
     }
     else if (humanChoice =='scissors' && computerChoice =='scissors') {
         console.log('Draw! You both chose scissors.')
+        result = "draw";
     }
     else console.log('Try Again');
 
-
+    if (result == "win") {humanScore++;} 
+        else if (result == "lose") {computerScore++;}
+        else {humanScore++; computerScore++;}
+    return (result);
 }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 playRound(humanSelection,computerSelection);
+console.log("You:" + humanScore + " "+ "Opponent:" + computerScore);
