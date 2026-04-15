@@ -25,8 +25,6 @@ let humanScore = 0;
 // logs a winner announcement
 // humanChoice input case-insensitive
 function playRound(humanChoice, computerChoice) {
-    computerScore;
-    humanScore;
     if (humanChoice == 'rock' && computerChoice == 'rock') {
         console.log('Draw! You both chose rock.');
         result = "draw";
@@ -67,11 +65,43 @@ function playRound(humanChoice, computerChoice) {
 
     if (result == "win") {humanScore++;} 
         else if (result == "lose") {computerScore++;}
-        else {humanScore++; computerScore++;}
+        else if (result == "draw"){humanScore++; computerScore++;}
     return (result);
 }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
-playRound(humanSelection,computerSelection);
-console.log("You:" + humanScore + " "+ "Opponent:" + computerScore);
+
+
+
+// play 5 round
+// track score
+// declares the winner at the end
+function playGame() {
+    // round one
+    playRound(humanSelection, computerSelection);
+    console.log("You: " + humanScore + " Opponent: " + computerScore);
+    // round two
+    playRound(getHumanChoice(), getComputerChoice());
+    console.log("You: " + humanScore + " Opponent: " + computerScore);
+    // round three
+    playRound(getHumanChoice(), getComputerChoice());
+    console.log("You: " + humanScore + " Opponent: " + computerScore);
+    // round four
+    playRound(getHumanChoice(), getComputerChoice());
+    console.log("You: " + humanScore + " Opponent: " + computerScore);
+    // round five
+    playRound(getHumanChoice(), getComputerChoice());
+    console.log("You: " + humanScore + " Opponent: " + computerScore);
+    if (humanScore > computerScore) {
+        alert("You win!");
+        console.log("You win!")}
+        else if (humanScore < computerScore) {
+            alert("You lose!")
+            console.log("You lose!")}
+        else if (humanScore == computerScore){
+            alert("Draw!")
+            console.log("Draw!")}
+}
+playGame();
+
