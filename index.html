@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="javascript.js"></script>
+    <script src="javascript.js" defer></script>
+    <style>
+        body {
+            display: flex;
+            min-height: 60vh;
+            margin: 50px;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            align-content: center;
+        }
+        
+        div {
+            font-size: 24px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 350px;
+            gap: 10px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <div>Choose rock, paper, or scissors to play.</div>
+        <div>
+            <img id="rock" class="rps" src="./img/rock.png" alt="" height="200" type="button" style="cursor: pointer;">
+            <img id="paper" class="rps" type="button" src="./img/paper.png" alt="" height="200" style="cursor: pointer;">
+            <img id="scissors" class="rps" type="button" src="./img/scissors.png" alt="" height="230" style="cursor: pointer;"></button>
+        </div>
+        <div id="showResult"></div>
+        <div id="scoreTable"></div>
+    </div>
 </body>
 </html>
